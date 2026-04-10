@@ -9,11 +9,10 @@ function Dashboard() {
     doctorName: ""
   });
 
-  const fetchData = async () => {
+const fetchData = async () => {
   try {
-    const res = await axios.post(
-      "https://hospitalmanagementproject.onrender.com/api/appointments",
-      form
+    const res = await axios.get(
+      `${process.env.REACT_APP_API_URL}/api/appointments`
     );
     setData(res.data);
   } catch (err) {
