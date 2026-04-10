@@ -5,8 +5,8 @@ function AdminDashboard() {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    axios
-      .get("http://localhost:5000/api/appointments")
+    
+      axios.get("https://hospitalmanagementproject.onrender.com/api/appointments")
       .then(res => setData(res.data));
   }, []);
 

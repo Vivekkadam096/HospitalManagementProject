@@ -27,7 +27,10 @@ function BookAppointment() {
     e.preventDefault();
 
     try {
-      await axios.post("http://localhost:5000/api/appointments", form);
+      await axios.post(
+  "https://hospitalmanagementproject.onrender.com/api/appointments",
+  form
+);
       setMessage("✅ Appointment booked successfully!");
       setShowQR(true);
     } catch (err) {

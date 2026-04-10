@@ -9,11 +9,17 @@ function Dashboard() {
     doctorName: ""
   });
 
-  const fetchData = () => {
-    axios.get("http://localhost:5000/api/appointments")
-      .then(res => setData(res.data));
-  };
-
+  const fetchData = async () => {
+  try {
+    const res = await axios.post(
+      "https://hospitalmanagementproject.onrender.com/api/appointments",
+      form
+    );
+    setData(res.data);
+  } catch (err) {
+    console.error(err);
+  }
+};
   useEffect(() => {
     fetchData();
   }, []);
@@ -28,9 +34,9 @@ function Dashboard() {
 
   const saveEdit = async () => {
     await axios.put(
-      `http://localhost:5000/api/appointments/${editId}`,
-      form
-    );
+  `https://hospitalmanagementproject.onrender.com/api/appointments/${editId}`,
+  form
+);
     setEditId(null);
     fetchData();
   };
